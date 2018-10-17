@@ -1,0 +1,7 @@
+<mat-form-field>
+  <mat-select placeholder="Buyer">
+    <mat-option *ngFor="let buyer of buyers" [value]="buyer.UID">
+      {{buyer.buyer}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

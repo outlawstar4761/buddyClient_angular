@@ -1,0 +1,36 @@
+<mat-card class="strain-card">
+  <mat-card-title>
+    <h3>Transact
+      <button mat-icon-button [matMenuTriggerFor]="menu" style="float:right">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </h3>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="purchase = purchase ? false : true">
+        <span>Buy</span>
+      </button>
+      <button mat-menu-item (click)="sale = sale ? false : true">
+        <span>Sell</span>
+      </button>
+      <button mat-menu-item (click)="tip = tip ? false : true">
+        <span>Tip</span>
+      </button>
+      <button mat-menu-item (click)="order = order ? false : true">
+        <span>Order</span>
+      </button>
+      <button mat-menu-item (click)="xfer = xfer ? false : true">
+        <span>Xfer</span>
+      </button>
+    </mat-menu>
+  </mat-card-title>
+  <mat-card-content>
+    <app-purchase *ngIf="purchase"></app-purchase>
+    <app-sale *ngIf="sale"></app-sale>
+    <app-tip *ngIf="tip"></app-tip>
+    <app-new-order *ngIf="order"></app-new-order>
+    <app-new-xfer *ngIf="xfer"></app-new-xfer>
+    <app-active-front-list></app-active-front-list>
+    <app-active-xfer-list></app-active-xfer-list>
+    <app-active-order-list></app-active-order-list>
+  </mat-card-content>
+</mat-card>

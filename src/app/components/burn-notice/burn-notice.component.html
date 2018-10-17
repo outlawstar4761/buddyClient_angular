@@ -1,0 +1,39 @@
+<mat-card class="strain-card">
+  <mat-card-title>
+    <h3 matHeader>
+      <mat-icon>whatshot</mat-icon>
+      {{reduceGrams(stats.total)}} {{getIncrement(stats.total)}}
+      <sub>(
+        <mat-icon style="fill:green">arrow_upwards</mat-icon>
+        <span style="color:green">${{stats.income}}</span>
+        <mat-icon style="fill:red">arrow_downward</mat-icon>
+        <span style="color:red">${{stats.expense}}</span>
+        )
+      </sub>
+    </h3>
+  </mat-card-title>
+  <mat-card-subtitle>
+    <h3 matSubheader>
+      ${{current_usd}} | Btc: {{current_btc.toFixed(8)}}
+    </h3>
+    <h3 matSubheader>
+      {{reduceGrams(current_inventory)}} {{getIncrement(current_inventory)}} <sub>(~{{dte.toFixed(0)}} DTE)</sub>
+    </h3>
+  </mat-card-subtitle>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        <mat-icon matListIcon>{{getSalesIcon(stats.sold)}}</mat-icon>
+        <h3 matLine>Sold: {{stats.sold.toFixed(2)}} %</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListIcon>{{getPersonalIcon(stats.personal)}}</mat-icon>
+        <h3 matLine>Smoked: {{stats.personal.toFixed(2)}} %</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListIcon>{{getDiscrepencyIcon(stats.discrepency)}}</mat-icon>
+        <h3 matLine>Lost: {{stats.discrepency.toFixed(2)}} %</h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

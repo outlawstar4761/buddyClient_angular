@@ -1,0 +1,20 @@
+<mat-card class="strain-card">
+  <mat-card-title>Tip</mat-card-title>
+  <mat-card-content>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+      <mat-form-field>
+        <mat-select placeholder="Buyer" name="buyer" ngModel>
+          <mat-option *ngFor="let buyer of buyers" [value]="buyer.UID">
+            {{buyer.buyer}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" name="payment" placeholder="$" ngModel>
+      </mat-form-field>
+      <p>
+        <button mat-raised-button type="submit">Submit</button>
+      </p>
+    </form>
+  </mat-card-content>
+</mat-card>

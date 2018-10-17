@@ -1,0 +1,7 @@
+<mat-form-field>
+  <mat-select placeholder="Strain">
+    <mat-option *ngFor="let strain of strains" [value]="strain.UID">
+      {{strain.name}} <span style="float:right">({{strain.inventory}} grams)</span>
+    </mat-option>
+  </mat-select>
+</mat-form-field>

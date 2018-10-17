@@ -1,0 +1,15 @@
+<div *ngIf="orders.length">
+  <h4>
+    Open Orders:
+    <!-- <mat-icon style="fill:green">arrow_upwards</mat-icon>
+    <span style="color:green">${{salesTotal}}</span>
+    <mat-icon style="fill:red">arrow_downward</mat-icon>
+    <span style="color:red">${{purchaseTotal}}</span> -->
+  </h4>
+</div>
+<mat-selection-list (selectionChange)="onSelection($event)">
+  <mat-list-option *ngFor="let order of orders" [value]='order'>
+    <h4 mat-line>{{getStrainLabel(order.strain)}} {{order.product_amount}}</h4>
+    <p mat-line>{{getVendorLabel(order.vendor)}}</p>
+  </mat-list-option>
+</mat-selection-list>

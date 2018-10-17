@@ -1,0 +1,16 @@
+<mat-card class="strain-card">
+  <mat-card-title>Xfer</mat-card-title>
+  <mat-card-content>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+      <mat-form-field>
+        <input matInput type="number" name="stash_used" placeholder="$ xfer" ngModel>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" name="initial_rate" placeholder="Btc Exchange" ngModel>
+      </mat-form-field>
+      <p>
+        <button mat-raised-button type="submit" class="card-submit">Submit</button>
+      </p>
+    </form>
+  </mat-card-content>
+</mat-card>

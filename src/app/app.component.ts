@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BuddyService } from './services/buddy.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'buddyClient';
+
+  constructor(private BuddyService: BuddyService){
+    this.BuddyService.checkCookie();
+  }
 }

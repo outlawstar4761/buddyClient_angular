@@ -1,0 +1,8 @@
+<div *ngIf="xfers.length">
+  <h4>Open Xfers: ${{total}}</h4>
+</div>
+<mat-selection-list (selectionChange)="onSelection($event)">
+  <mat-list-option *ngFor="let xfer of xfers" [value]='xfer'>
+    ${{xfer.stash_used}} | {{xfer.created_date | date:'short'}}
+  </mat-list-option>
+</mat-selection-list>
