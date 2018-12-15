@@ -25,8 +25,7 @@ export class ApiService {
   endPoint:string;
 
   constructor(private http:HttpClient ) {
-    this.endPoint = 'http://outlawdesigns.ddns.net:4663';
-    // this.endPoint = 'http://localhost:8854';
+    this.endPoint = 'http://api.outlawdesigns.io:8663';
     this.token = '1234';
  }
  _buildAuthHeader():HttpHeaders{
