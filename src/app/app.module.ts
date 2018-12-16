@@ -95,7 +95,11 @@ const appRoutes: Routes = [
     MatBottomSheetModule
   ],
   entryComponents:[XferBottomSheetComponent],
-  providers: [CookieService],
+  providers: [
+    CookieService,
+    {provide:'API_ENDPOINT',useValue:'http://api.outlawdesigns.io:4663'},
+    {provide:'AUTH_TOKEN',useValue:'1234'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

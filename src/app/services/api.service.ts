@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable,Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import {
@@ -24,9 +24,9 @@ export class ApiService {
   token:string;
   endPoint:string;
 
-  constructor(private http:HttpClient ) {
-    this.endPoint = 'http://api.outlawdesigns.io:8663';
-    this.token = '1234';
+  constructor(@Inject('API_ENDPOINT') ENDPOINT:string,@Inject('AUTH_TOKEN') TOKEN:string,private http:HttpClient) {
+    this.endPoint = ENDPOINT;
+    this.token = TOKEN;
  }
  _buildAuthHeader():HttpHeaders{
    return new HttpHeaders({'auth_token':this.token});
