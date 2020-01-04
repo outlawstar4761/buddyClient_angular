@@ -97,7 +97,8 @@ const appRoutes: Routes = [
   entryComponents:[XferBottomSheetComponent],
   providers: [
     CookieService,
-    {provide:'API_ENDPOINT',useValue:'http://api.outlawdesigns.io:4663'},
+    {provide:'API_ENDPOINT',useValue:'https://api.outlawdesigns.io:8663'},
+    {provide:'AUTH_ENDPOINT',useValue:'https://api.outlawdesigns.io:9661'},
     {provide:'AUTH_TOKEN',useValue:'1234'}
   ],
   bootstrap: [AppComponent]

@@ -23,9 +23,15 @@ import { BtcStash } from '../models/btc-stash';
 export class ApiService {
   token:string;
   endPoint:string;
+  authEndPoint:string;
 
-  constructor(@Inject('API_ENDPOINT') ENDPOINT:string,@Inject('AUTH_TOKEN') TOKEN:string,private http:HttpClient) {
+  constructor(@Inject('API_ENDPOINT') ENDPOINT:string,
+              @Inject('AUTH_TOKEN') TOKEN:string,
+              @Inject('AUTH_ENDPOINT') AUTH_ENDPOINT:string,
+              private http:HttpClient
+            ) {
     this.endPoint = ENDPOINT;
+    this.authEndPoint = AUTH_ENDPOINT;
     this.token = TOKEN;
  }
  _buildAuthHeader():HttpHeaders{
@@ -33,11 +39,11 @@ export class ApiService {
  }
  authenticate(username,password):Observable<any>{
    let headers = new HttpHeaders({'request_token':username,'password':password});
-   let url = this.endPoint + '/authenticate';
+   let url = this.authEndPoint + '/authenticate';
    return this.http.get(url,{headers:headers}).map((response)=>{return response});
  }
  verifyToken():Observable<any>{
-   let url = this.endPoint + '/verify';
+   let url = this.authEndPoint + '/verify';
    return this.http.get<any>(url,{headers:this._buildAuthHeader()}).map((response)=>{return response});
  }
  getTransaction(uid:number):Observable<Transaction[]>{
